@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body class="bg-gray-800 text-white font-sans">
+
+  <!-- Tab Navigation -->
+  <div class="bg-gray-700 p-4">
+    <div class="flex justify-center space-x-4">
+      <button id="checkInTab" class="tab-button py-2 px-6 rounded-md hover:bg-gray-600 focus:outline-none transition">Check-In</button>
+      <button id="exerciseLoggingTab" class="tab-button py-2 px-6 rounded-md hover:bg-gray-600 focus:outline-none transition">Exercise Logging</button>
+      <button id="progressTrackerTab" class="tab-button py-2 px-6 rounded-md hover:bg-gray-600 focus:outline-none transition">Progress Tracker</button>
+      <button id="historyTab" class="tab-button py-2 px-6 rounded-md hover:bg-gray-600 focus:outline-none transition">History</button>
+    </div>
+  </div>
+
+  <!-- Tab Content -->
+  <div id="tabsContainer" class="p-5">
+    <!-- Check-In Tab -->
+    <div id="checkInContent" class="tab-content">
+      <h2 class="text-xl">Check-In</h2>
+      <button id="checkInButton" class="mt-4 bg-green-500 text-white p-3 rounded-lg w-full">Check-In</button>
+      <p id="streakCounter" class="mt-4">Streak: 0 days</p>
+      <p id="lastCheckInDate">Last Check-In: Never</p>
+    </div>
+
+    <!-- Exercise Logging Tab -->
+    <div id="exerciseLoggingContent" class="tab-content hidden">
+      <h2 class="text-xl">Exercise Logging</h2>
+      <button id="startWorkoutButton" class="mt-4 bg-blue-500 text-white p-3 rounded-lg w-full">Start Workout</button>
+      
+      <!-- Workout details -->
+      <div id="workoutDetails" class="mt-4 hidden">
+        <select id="exerciseDropdown" class="bg-gray-600 text-white p-2 rounded-lg w-full">
+          <option value="" disabled selected>Select Exercise</option>
+          <!-- Exercise options will be added dynamically -->
+        </select>
+        <div class="mt-4">
+          <label for="weightInput" class="block">Weight (kg)</label>
+          <input type="number" id="weightInput" class="bg-gray-600 text-white p-2 rounded-lg w-full mt-2" placeholder="Enter weight" />
+        </div>
+        <div class="mt-4">
+          <label for="repsInput" class="block">Reps</label>
+          <input type="number" id="repsInput" class="bg-gray-600 text-white p-2 rounded-lg w-full mt-2" placeholder="Enter reps" />
+        </div>
+        <button id="logSetButton" class="mt-4 bg-green-500 text-white p-3 rounded-lg w-full">Log Set</button>
+        <div id="setNumber" class="mt-4">Set 1</div>
+      </div>
+
+      <!-- Display Logged Sets (immediately visible here) -->
+      <div id="loggedSets" class="mt-4">
+        <!-- Logged sets will be appended here -->
+      </div>
+
+      <!-- Finish Workout Button -->
+      <button id="finishWorkoutButton" class="mt-4 bg-red-500 text-white p-3 rounded-lg w-full hidden">Finish Workout</button>
+    </div>
+
+    <!-- Progress Tracker Tab -->
+    <div id="progressTrackerContent" class="tab-content hidden">
+      <h2 class="text-xl">Progress</h2>
+      <canvas id="progressChart" class="mt-4"></canvas>
+    </div>
+
+    <!-- History Tab -->
+    <div id="historyContent" class="tab-content hidden">
+      <h2 class="text-xl">Workout History</h2>
+      <div id="workoutHistoryList" class="mt-4">
+        <!-- Workout history will be populated dynamically here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script2.js"></script>
+</body>
+</html>
